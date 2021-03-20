@@ -25,25 +25,10 @@ var specialCaracters=prompt("Do you want to include special caracters");
 if  (upperCase=true) {
   var password=
 }
-else if
 
 
 
-for (upperCase=true) {
-  passwordLength++;
-}
 
-console.log(passwordLength);
-
-for (numeric=true) {
-  passwordLength++;
-}
-
-console.log(passwordLength);
-
-for (specialCaracters=true) {
-  passwordLength++;
-}
 
 
 
