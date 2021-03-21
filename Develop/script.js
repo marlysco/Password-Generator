@@ -9,7 +9,7 @@ var passwordArray=[];
 var numeric;
 var specialCaracters;
 var upperCase;
-var result="";
+var result=[];
 
 // Prompting for options
 
@@ -51,52 +51,52 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-//Functions/////////////////
+//Functions
 
 //To pick the criteria(s) from the user
 function criterias() {
-  var upperCase=prompt("Do you want to have upper case letters");
+  var upperCase=confirm("Do you want to have upper case letters");
   console.log(upperCase);
-  var numeric=prompt("Do you want to include numbers");
+  var numeric=confirm("Do you want to include numbers");
   console.log(numeric);
-  var specialCaracters=prompt("Do you want to include special caracters");
+  var specialCaracters=confirm("Do you want to include special caracters");
   console.log(specialCaracters);
 }
 
 //To collect in one array all the desired caracters, picked by the user
  function collect () {
-    //8-111: Yes upper case, Yes numeric, Yes Special Caracters
+    //111: Yes upper case, Yes numeric, Yes Special Caracters
     if (upperCase && numeric && specialCaracters) {
     var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray, specialCaractersArray);
     console.log(passwordArray);
     }
-    //7-110: Yes upper case, Yes numeric, No Special Caracters
+    //110: Yes upper case, Yes numeric, No Special Caracters
     else if (upperCase && numeric && !specialCaracters) {
       var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray);
      console.log(passwordArray);
       } 
-    //6-101: Yes upper case, No numeric, Yes Special Caracters
+    //101: Yes upper case, No numeric, Yes Special Caracters
     else if (upperCase && !numeric && specialCaracters) {
       var passwordArray=lowerCaseArray.concat(upperCaseArray, specialCaractersArray);
       console.log(passwordArray);
       }
   
-    //5-100: Yes upper case, No numeric, No Special Caracters
+    //100: Yes upper case, No numeric, No Special Caracters
     else if (upperCase && !numeric && !specialCaracters) {
       var passwordArray=lowerCaseArray.concat(upperCaseArray);
       console.log(passwordArray);
     }
-    //4-011: No upper case, Yes numeric, Yes Special Caracters
+    //011: No upper case, Yes numeric, Yes Special Caracters
     else if (!upperCase && numeric && specialCaracters) {
       var passwordArray=lowerCaseArray.concat(numericArray,specialCaractersArray);
       console.log(passwordArray);
     }
-    //3-010: No upper case, Yes numeric, No Special Caracters
+    //010: No upper case, Yes numeric, No Special Caracters
     else if (!upperCase && numeric && !specialCaracters) {
       var passwordArray=lowerCaseArray.concat(numericArray);
       console.log(passwordArray);
     }
-    //1-001: No upper case, No numeric, Yes Special Caracters
+    //001: No upper case, No numeric, Yes Special Caracters
     else {
       var passwordArray=lowerCaseArray.concat(specialCaractersArray);
       console.log(passwordArray);
@@ -112,9 +112,9 @@ function criterias() {
     for (i=0; i=passwordLength; i++) {
         var randomPosition=getRndPosition();
         console.log(randomPosition);
-        result.push(passwordArray[randomPosition]);
-        console.log(result);
-        return result;
+        newresult=result.push(passwordArray[randomPosition]);
+        console.log(newresult);
+        return newresult;
         }
     }
     
