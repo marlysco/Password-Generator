@@ -14,6 +14,7 @@ var result=[];
 // Prompting for options
 
 var passwordLength= prompt("Enter the desired length, at least 8 characters and no more than 128")
+console.log(passwordLength);
 
 //Validating password length
 
@@ -30,9 +31,10 @@ if (!numeric && !specialCaracters && !upperCase) {
   alert("You must choose at least one criteria");
   criterias();
 }
-
-//To collect in one array all the desired caracters, picked by the user
+else {
+  //To collect in one array all the desired caracters, picked by the user
 collect ()
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -48,9 +50,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-
 //Functions
 
 //To pick the criteria(s) from the user
@@ -65,46 +64,11 @@ function criterias() {
 
 //To collect in one array all the desired caracters, picked by the user
  function collect () {
-    //111: Yes upper case, Yes numeric, Yes Special Caracters
-    if (upperCase && numeric && specialCaracters) {
-    var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray, specialCaractersArray);
-    console.log(passwordArray);
-    }
-    //110: Yes upper case, Yes numeric, No Special Caracters
-    else if (upperCase && numeric && !specialCaracters) {
-      var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray);
-     console.log(passwordArray);
-      } 
-    //101: Yes upper case, No numeric, Yes Special Caracters
-    else if (upperCase && !numeric && specialCaracters) {
-      var passwordArray=lowerCaseArray.concat(upperCaseArray, specialCaractersArray);
-      console.log(passwordArray);
-      }
-  
-    //100: Yes upper case, No numeric, No Special Caracters
-    else if (upperCase && !numeric && !specialCaracters) {
-      var passwordArray=lowerCaseArray.concat(upperCaseArray);
-      console.log(passwordArray);
-    }
-    //011: No upper case, Yes numeric, Yes Special Caracters
-    else if (!upperCase && numeric && specialCaracters) {
-      var passwordArray=lowerCaseArray.concat(numericArray,specialCaractersArray);
-      console.log(passwordArray);
-    }
-    //010: No upper case, Yes numeric, No Special Caracters
-    else if (!upperCase && numeric && !specialCaracters) {
-      var passwordArray=lowerCaseArray.concat(numericArray);
-      console.log(passwordArray);
-    }
-    //001: No upper case, No numeric, Yes Special Caracters
-    else {
-      var passwordArray=lowerCaseArray.concat(specialCaractersArray);
-      console.log(passwordArray);
-    }
+    
  }
 
  function getRndPosition() {
-  return Math.floor(Math.random() * passwordArray.length)
+  return Math.floor(Math.random() * passwordArray.length);
   }
 
  //Function to randomly choose the password caracters form the passwordArray
