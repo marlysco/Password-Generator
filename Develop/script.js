@@ -10,45 +10,38 @@ var numeric;
 var specialCaracters;
 var upperCase;
 var result=[];
+var passwordLength;
+var newresult=[];
 
-// Prompting for options
-
-var passwordLength= prompt("Enter the desired length, at least 8 characters and no more than 128")
-console.log(passwordLength);
-
-//Validating password length
-
-while (passwordLength <8 || passwordLength >= 128) {
-  alert("Please choose at least 8 characters and no more than 128");
-  var passwordLength= prompt("Enter the desired length, at least 8 characters and no more than 128")
-}
-
-//To pick the criteria(s) from the user
-criterias();
-
-//Validating the user picked at least one criteria
-if (!numeric && !specialCaracters && !upperCase) {
-  alert("You must choose at least one criteria");
-  criterias();
-}
-else {
-  //To collect in one array all the desired caracters, picked by the user
-collect ()
-}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+
+  var passwordLength= prompt("Enter the desired length, at least 8 characters and no more than 128")
+  console.log(passwordLength);
+
+  //Validating password length
+  while (passwordLength <8 || passwordLength >= 128) {
+    alert("Please choose at least 8 characters and no more than 128");
+    return;
+  }
+  
+  criterias();
+  
+  getPassword();
+
+  var password = getPassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
-}
+  }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
 //Functions
 
@@ -60,35 +53,65 @@ function criterias() {
   console.log(numeric);
   var specialCaracters=confirm("Do you want to include special caracters");
   console.log(specialCaracters);
-}
 
-//To collect in one array all the desired caracters, picked by the user
- function collect () {
-    
- }
-
- function getRndPosition() {
-  return Math.floor(Math.random() * passwordArray.length);
+  //Validating the user picked at least one criteria
+  if (!numeric && !specialCaracters && !upperCase) {
+    alert("You must choose at least one criteria");
+    return;
+   }
+ else {
+    alert ("Lets built your secure password!");
   }
 
- //Function to randomly choose the password caracters form the passwordArray
-  function generatePassword() {
-    for (i=0; i=passwordLength; i++) {
+  //111: Yes upper case, Yes numeric, Yes Special Caracters
+  if (upperCase && numeric && specialCaracters) {
+    var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray, specialCaractersArray);
+    console.log(passwordArray);
+    }
+    //110: Yes upper case, Yes numeric, No Special Caracters
+    else if (upperCase && numeric && !specialCaracters) {
+      var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray);
+     console.log(passwordArray);
+      } 
+    //101: Yes upper case, No numeric, Yes Special Caracters
+    else if (upperCase && !numeric && specialCaracters) {
+      var passwordArray=lowerCaseArray.concat(upperCaseArray, specialCaractersArray);
+      console.log(passwordArray);
+      }
+  
+    //100: Yes upper case, No numeric, No Special Caracters
+    else if (upperCase && !numeric && !specialCaracters) {
+      var passwordArray=lowerCaseArray.concat(upperCaseArray);
+      console.log(passwordArray);
+    }
+    //011: No upper case, Yes numeric, Yes Special Caracters
+    else if (!upperCase && numeric && specialCaracters) {
+      var passwordArray=lowerCaseArray.concat(numericArray,specialCaractersArray);
+      console.log(passwordArray);
+    }
+    //010: No upper case, Yes numeric, No Special Caracters
+    else if (!upperCase && numeric && !specialCaracters) {
+      var passwordArray=lowerCaseArray.concat(numericArray);
+      console.log(passwordArray);
+    }
+    //001: No upper case, No numeric, Yes Special Caracters
+    else {
+      var passwordArray=lowerCaseArray.concat(specialCaractersArray);
+      console.log(passwordArray);
+    }
+}
+  
+  //Function to randomly choose the password caracters form the passwordArray
+  function getPassword () {
+    for (i=0; i <= passwordLength; i++) {
         var randomPosition=getRndPosition();
         console.log(randomPosition);
         newresult=result.push(passwordArray[randomPosition]);
         console.log(newresult);
-        return newresult;
         }
+        return newresult;
+  }
+
+  function getRndPosition() {
+    return Math.floor(Math.random() * passwordArray.length);
     }
-    
-  
-
-
-
-
-
-
-
-
-
