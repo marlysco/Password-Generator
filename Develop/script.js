@@ -28,16 +28,14 @@ function writePassword() {
     alert("Please choose at least 8 characters and no more than 128");
     return;
   }
-  
-  criterias();
-  
-  getPassword();
+   criterias();
 
-  var password = getPassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+   var password = generatePassword();
+   var passwordText = document.querySelector("#password");
+   passwordText.value = password;
+
   }
-
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -63,7 +61,7 @@ function criterias() {
     alert ("Lets built your secure password!");
   }
 
-  //111: Yes upper case, Yes numeric, Yes Special Caracters
+   //111: Yes upper case, Yes numeric, Yes Special Caracters
   if (upperCase && numeric && specialCaracters) {
     var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray, specialCaractersArray);
     console.log(passwordArray);
@@ -99,10 +97,12 @@ function criterias() {
       var passwordArray=lowerCaseArray.concat(specialCaractersArray);
       console.log(passwordArray);
     }
+
+    generatePassword();
 }
   
   //Function to randomly choose the password caracters form the passwordArray
-  function getPassword () {
+  function generatePassword () {
     for (i=0; i <= passwordLength; i++) {
         var randomPosition=getRndPosition();
         console.log(randomPosition);
