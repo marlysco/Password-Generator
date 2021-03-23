@@ -11,7 +11,7 @@ var specialCaracters;
 var upperCase;
 var result=[];
 var passwordLength;
-var newresult=[];
+var userPassword="";
 
 
 // Assignment Code
@@ -43,8 +43,9 @@ generateBtn.addEventListener("click", writePassword);
 
 //Functions
 
-//To pick the criteria(s) from the user
+
 function criterias() {
+ //To pick the criteria(s) from the user
   var upperCase=confirm("Do you want to have upper case letters");
   console.log(upperCase);
   var numeric=confirm("Do you want to include numbers");
@@ -96,22 +97,22 @@ function criterias() {
     else {
       var passwordArray=lowerCaseArray.concat(specialCaractersArray);
       console.log(passwordArray);
-    }
-
-    generatePassword();
-}
+    } 
+  }
   
   //Function to randomly choose the password caracters form the passwordArray
   function generatePassword () {
-    for (i=0; i <= passwordLength; i++) {
+    for (i=0; i < passwordLength; i++) {
         var randomPosition=getRndPosition();
         console.log(randomPosition);
-        newresult=result.push(passwordArray[randomPosition]);
-        console.log(newresult);
+        userPassword=result.push(passwordArray[randomPosition]);
+        console.log(userPassword);
         }
-        return newresult;
+        return userPassword;
   }
 
   function getRndPosition() {
     return Math.floor(Math.random() * passwordArray.length);
     }
+
+    
