@@ -42,15 +42,13 @@ generateBtn.addEventListener("click", writePassword);
 
 
 //Functions
-
-
 function criterias() {
  //To pick the criteria(s) from the user
-  var upperCase=confirm("Do you want to have upper case letters");
+  var upperCase=confirm("Do you want to have upper case letters?");
   console.log(upperCase);
-  var numeric=confirm("Do you want to include numbers");
+  var numeric=confirm("Do you want to include numbers?");
   console.log(numeric);
-  var specialCaracters=confirm("Do you want to include special caracters");
+  var specialCaracters=confirm("Do you want to include special caracters?");
   console.log(specialCaracters);
 
   //Validating the user picked at least one criteria
@@ -59,9 +57,6 @@ function criterias() {
     return;
    }
  else {
-    alert ("Lets built your secure password!");
-  }
-
    //111: Yes upper case, Yes numeric, Yes Special Caracters
   if (upperCase && numeric && specialCaracters) {
     var passwordArray=lowerCaseArray.concat(upperCaseArray, numericArray, specialCaractersArray);
@@ -99,10 +94,11 @@ function criterias() {
       console.log(passwordArray);
     } 
   }
+  }
   
   //Function to randomly choose the password caracters form the passwordArray
   function generatePassword () {
-    for (i=0; i < passwordLength; i++) {
+    for (var i=0; i < passwordLength; i++) {
         var randomPosition=getRndPosition();
         console.log(randomPosition);
         userPassword=result.push(passwordArray[randomPosition]);
