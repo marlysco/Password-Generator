@@ -40,7 +40,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-
 //Functions
 function criterias() {
  //To pick the criteria(s) from the user
