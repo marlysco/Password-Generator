@@ -9,7 +9,6 @@ var passwordArray=[];
 var numeric;
 var specialCaracters;
 var upperCase;
-var result=[];
 var passwordLength;
 var userPassword="";
 
@@ -98,16 +97,15 @@ function criterias() {
   //Function to randomly choose the password caracters form the passwordArray
   function generatePassword () {
     for (var i=0; i < passwordLength; i++) {
-        var randomPosition=getRndPosition();
-        console.log(randomPosition);
-        userPassword=result.push(passwordArray[randomPosition]);
+        var randomPosition = Math.floor(Math.random()*passwordArray.length);
+        console.log(randomPosition);  
+        //userPassword=result.push(passwordArray[randomPosition]);
+        //userPassword += String.fromCharCode(randomPosition);
         console.log(userPassword);
+
         }
         return userPassword;
   }
 
-  function getRndPosition() {
-    return Math.floor(Math.random() * passwordArray.length);
-    }
 
     
