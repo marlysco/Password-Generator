@@ -22,38 +22,27 @@ function writePassword() {
   var passwordLength= prompt("Enter the desired length, at least 8 characters and no more than 128")
   console.log(passwordLength);
 
-  //Validating password length
+  //Validating password length and user criterias
   while (passwordLength <8 || passwordLength >= 128) {
     alert("Please choose at least 8 characters and no more than 128");
     return;
   }
-   criterias();
 
-   var password = generatePassword();
-   var passwordText = document.querySelector("#password");
-   passwordText.value = password;
-
-  }
-  
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-//Functions
-function criterias() {
- //To pick the criteria(s) from the user
+   //To pick the criteria(s) from the user
   var upperCase=confirm("Do you want to have upper case letters?");
   console.log(upperCase);
   var numeric=confirm("Do you want to include numbers?");
   console.log(numeric);
   var specialCaracters=confirm("Do you want to include special caracters?");
   console.log(specialCaracters);
+ 
 
   //Validating the user picked at least one criteria
   if (!numeric && !specialCaracters && !upperCase) {
     alert("You must choose at least one criteria");
     return;
    }
+
  else {
    //111: Yes upper case, Yes numeric, Yes Special Caracters
   if (upperCase && numeric && specialCaracters) {
@@ -70,7 +59,6 @@ function criterias() {
       var passwordArray=lowerCaseArray.concat(upperCaseArray, specialCaractersArray);
       console.log(passwordArray);
       }
-  
     //100: Yes upper case, No numeric, No Special Caracters
     else if (upperCase && !numeric && !specialCaracters) {
       var passwordArray=lowerCaseArray.concat(upperCaseArray);
@@ -92,20 +80,24 @@ function criterias() {
       console.log(passwordArray);
     } 
   }
+  
+   console.log(passwordArray);
+
+   for (var i=0; i < passwordLength; i++) {
+    var randomPosition = Math.floor(Math.random()*passwordArray.length);
+    console.log(randomPosition);
+        console.log(randomPosition);  
+    console.log(randomPosition);
+    //userPassword=result.push(passwordArray[randomPosition])  
+    userPassword += randomPosition;
+    console.log(userPassword);
+    }
+
+   var passwordText = document.querySelector("#password");
+   passwordText.value = userPassword;
   }
   
-  //Function to randomly choose the password caracters form the passwordArray
-  function generatePassword () {
-    for (var i=0; i < passwordLength; i++) {
-        var randomPosition = Math.floor(Math.random()*passwordArray.length);
-        console.log(randomPosition);  
-        //userPassword=result.push(passwordArray[randomPosition]);
-        //userPassword += String.fromCharCode(randomPosition);
-        console.log(userPassword);
-
-        }
-        return userPassword;
-  }
+   // Add event listener to generate button
+   generateBtn.addEventListener("click", writePassword);
 
 
-    
