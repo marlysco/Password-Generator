@@ -36,7 +36,6 @@ function writePassword() {
   var specialCaracters=confirm("Do you want to include special caracters?");
   console.log(specialCaracters);
  
-
   //Validating the user picked at least one criteria
   if (!numeric && !specialCaracters && !upperCase) {
     alert("You must choose at least one criteria");
@@ -88,15 +87,14 @@ function writePassword() {
     console.log(randomPosition);
         console.log(randomPosition);  
     console.log(randomPosition);
-    //userPassword=result.push(passwordArray[randomPosition])  
-    userPassword += randomPosition;
+    userPassword += String.fromCharCode(randomPosition);
     console.log(userPassword);
     }
 
    var passwordText = document.querySelector("#password");
    passwordText.value = userPassword;
   }
-  
+
    // Add event listener to generate button
    generateBtn.addEventListener("click", writePassword);
 
