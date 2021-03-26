@@ -12,8 +12,8 @@ When you press the "Generate" button, you will be asked to select:
 
 You must select at least one of those options.
 
-You will get a strong password after the selection is completed.
-
+You will get a strong password after the selection is completed:
+![image](https://user-images.githubusercontent.com/44534982/112669586-46ac3080-8e36-11eb-8e10-f39f430b84c1.png)
 
 You can access to this aplication usgin the following link:
 
