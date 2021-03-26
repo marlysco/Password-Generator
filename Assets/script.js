@@ -10,7 +10,8 @@ var numeric;
 var specialCaracters;
 var upperCase;
 var passwordLength;
-var userPassword="";
+var userPassword=[];
+var StringUserPassword=[];
 
 
 // Assignment Code
@@ -87,11 +88,12 @@ function writePassword() {
     console.log(randomPosition);
     userPassword.push(passwordArray[randomPosition]);
     //userPassword += String.fromCharCode(randomPosition);
-    console.log(userPassword);
+    StringUserPassword=userPassword.join('');
+    console.log(StringUserPassword);
     }
 
    var passwordText = document.querySelector("#password");
-   passwordText.value = userPassword;
+   passwordText.value = StringUserPassword;
   }
 
    // Add event listener to generate button
