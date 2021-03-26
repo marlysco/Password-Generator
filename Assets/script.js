@@ -85,9 +85,8 @@ function writePassword() {
    for (var i=0; i < passwordLength; i++) {
     var randomPosition = Math.floor(Math.random()*passwordArray.length);
     console.log(randomPosition);
-        console.log(randomPosition);  
-    console.log(randomPosition);
-    userPassword += String.fromCharCode(randomPosition);
+    userPassword.push(passwordArray[randomPosition]);
+    //userPassword += String.fromCharCode(randomPosition);
     console.log(userPassword);
     }
 
